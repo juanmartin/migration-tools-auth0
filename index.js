@@ -9,6 +9,7 @@ const fs = require('fs')
 const getUsers = async () => {
   try {
     const usersDB = await models.cbo_usuario.findAll()
+    // console.log(JSON.stringify(usersDB))
     const userJSON = usersDB.map(u => {
       return {
         email: "",
@@ -27,7 +28,7 @@ const getUsers = async () => {
         }
       }
     })
-    // console.log(JSON.stringify(usersDB))
+    // console.log(JSON.stringify(userJSON))
     fs.writeFile("users-for-auth0.json", JSON.stringify(userJSON), (err) => {
       if (err) throw err
       console.log('JSON saved successfully.')

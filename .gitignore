@@ -1,5 +1,5 @@
 node_modules/
 .env
-db/
+db/models/*
 users.json
 users-for-auth0.json
