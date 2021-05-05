@@ -11,16 +11,18 @@ const getUsers = async () => {
     const usersDB = await models.cbo_usuario.findAll()
     // console.log(JSON.stringify(usersDB))
     const userJSON = usersDB.map(u => {
+      const email = u.uio_login + "@" + "siniestros" + ".com"
       return {
-        email: "",
-        given_name: u.uio_primernombre,
-        family_name: u.uio_segundonombre,
+        email: email,
+        email_verified: true,
+        given_name: u.uio_primernombre ?? "SinNombre",
+        family_name: u.uio_segundonombre ?? "SinApellido",
         username: u.uio_login,
         custom_password_hash: {
           algorithm: "md5",
           hash: {
             value: u.uio_password,
-            encoding: "utf8"
+            encoding: "base64"
           }
         },
         app_metadata: {
