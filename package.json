@@ -1,0 +1,17 @@
+{
+  "name": "bulk-migrator-auth0-users",
+  "version": "1.0.0",
+  "description": "User JSON generator for auth0 bulk migration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "juanm.art",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.4.0",
+    "pg": "^8.6.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.6.2"
+  }
+}
