@@ -3,6 +3,6 @@ node_modules/
 db/models/*
 users.json
 users-for-auth0.json
-auth0-users.js
-auth0-users-backup.js
+auth0-users.json
+auth0-users-backup.json
 users-example.json
