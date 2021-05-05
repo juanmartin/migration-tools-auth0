@@ -33,7 +33,7 @@ const getUsers = async () => {
     // console.log(JSON.stringify(userJSON))
     fs.writeFile("users-for-auth0.json", JSON.stringify(userJSON), (err) => {
       if (err) throw err
-      console.log('JSON saved successfully.')
+      console.log('Saving JSON...')
     })
   } catch (err) {
     console.error("Error fetching from DB.", err)

@@ -4,6 +4,10 @@ This little and simple tool connects to PosgreSQL db, gets all users and generat
 
 I needed this to bulk import all my users from legacy database to Auth0 without paying for a plan and making use of proper features like Custom Database Connections or the automatic lazy migration.
 
+### NEW and DANGEROUS feature! now you can **bulk delete** ALL of your users!
+ - Create `.env` file as stated below (only AUTH0... vars needed if you're only deleting).
+ - Run `node delete-all-users.js`.
+
 ## Instructions
 - Clone repo.
 - `npm i`
@@ -14,6 +18,9 @@ I needed this to bulk import all my users from legacy database to Auth0 without 
   PGDATABASE=database-name
   PGPASSWORD=password
   PGPORT=port
+  // The ones below are only needed to bulk delete all users.
+  AUTH0_HOST=https://your.auth0.host.com
+  AUTH0_TOKEN=bearer_token
   ```
 - Create sequelize models with **[this](https://github.com/sequelize/sequelize-auto)**.
   - You'll get a `.js` file for each table and an `init-models.js` which should be put in `db/models/`. We only need the table containing user data though.
