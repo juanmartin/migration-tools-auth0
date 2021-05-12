@@ -22,7 +22,7 @@ const getUsers = async () => {
           algorithm: "md5",
           hash: {
             value: u.uio_password,
-            encoding: "base64"
+            encoding: "hex"
           }
         },
         app_metadata: {
