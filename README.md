@@ -1,4 +1,11 @@
-# JSON generator for Bulk Import in Auth0
+# Migration Tools for Auth0 users
+
+This repo is now a set of tools I wrote to be able to use Auth0 as my authentication and authorization provider in an app I made which already had a users table in its db.
+
+Since I still needed to keep my users table for some functionality, I implemented these tools to do bulk operations on my db and auth0's user store.
+
+I know I could have chosen a different path for my app (I don't like the fact that I'm keeping users in two stores, feels wrong) but for now, I wrote these tools to help me achieve my urgent goals. And it worked!
+## JSON generator for Bulk Import in Auth0
 
 This little and simple tool connects to PosgreSQL db, gets all users and generates a JSON file formatted according to [Auth0 docs](https://auth0.com/docs/users/bulk-user-import-database-schema-and-examples).
 
@@ -32,4 +39,21 @@ I needed this to bulk import all my users from legacy database to Auth0 without 
 - Done. You have migrated from your old rusty db users to an almighty corporate IDaaS production ready infrastructure.
   
 
-> I dropped the users table after migrating so don't even think about it.
+## Add legacy user id to Auth0 `app_metadata`
+
+This one puts your user id from legacy db to `app_metadata` field in Auth0 users. 
+
+- Configure code according to your user db.
+- Run `node add-legacy-id-users.js`
+
+## Add Roles to users in Auth0
+
+This one assigns roles in Auth0 users according to roles in my db.
+
+- Modify code according to your user roles.
+- Run `node add-roles-users.js`
+
+
+# TO-DO
+- Better explain how to adapt the tools to anyone's need. But if you need help just hit me up or open an issue.
+- Add to this repo the actions and rules I wrote in Auth0 to consume this data.
