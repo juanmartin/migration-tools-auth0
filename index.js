@@ -26,7 +26,8 @@ const getUsers = async () => {
           }
         },
         app_metadata: {
-          rol: u.uio_rol
+          rol: u.uio_rol,
+          uio_id: u.uio_id
         }
       }
     })
